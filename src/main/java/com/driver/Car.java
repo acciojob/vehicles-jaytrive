@@ -27,6 +27,11 @@ public class Car extends Vehicle {
         this.seats=seats;
         this.currentGear=1;
     }
+    public Car(String name, boolean isManual)
+    {
+        super(name);
+        this.isManual = isManual;
+    }
 
     public void changeGear(int newGear){
 
