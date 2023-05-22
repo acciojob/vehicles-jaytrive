@@ -1,8 +1,17 @@
 package com.driver;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@Getter
+@Setter
 public class F1 extends Car {
 
     public F1(String name, boolean isManual) {
+        setName(name);
+        setManual(isManual);
         //Use arbitrary values for parameters which are not mentioned
     }
 
@@ -18,10 +27,44 @@ public class F1 extends Car {
          * speed more than 250: gear 6
          */
 
+        //Stop the car, set gear as 1
         if(newSpeed == 0) {
-            //Stop the car, set gear as 1
-        }
+            setCurrentGear(0);
+            setCurrentSpeed(0);}
         //for all other cases, change the gear accordingly
+
+        //1-50
+        if(getCurrentSpeed()+rate>=1 && getCurrentSpeed()+rate<=50){
+            setCurrentGear(1);
+            setCurrentSpeed(getCurrentSpeed()+rate);
+        }
+
+        //51-100
+        if(getCurrentSpeed()+rate>=51 && getCurrentSpeed()+rate<=100){
+            setCurrentGear(2);
+            setCurrentSpeed(getCurrentSpeed()+rate);
+        }
+
+        if(getCurrentSpeed()+rate>=101 && getCurrentSpeed()+rate<=150){
+            setCurrentGear(3);
+            setCurrentSpeed(getCurrentSpeed()+rate);
+        }
+
+        if(getCurrentSpeed()+rate>=151 && getCurrentSpeed()+rate<=200){
+            setCurrentGear(4);
+            setCurrentSpeed(getCurrentSpeed()+rate);
+        }
+
+        if(getCurrentSpeed()+rate>=201 && getCurrentSpeed()+rate<=250){
+            setCurrentGear(5);
+            setCurrentSpeed(getCurrentSpeed()+rate);
+        }
+
+        if(getCurrentSpeed()+rate>=250){
+            setCurrentGear(6);
+            setCurrentSpeed(getCurrentSpeed()+rate);
+        }
+
 
         if(newSpeed > 0) {
             changeSpeed(newSpeed, getCurrentDirection());
