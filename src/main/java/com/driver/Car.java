@@ -7,8 +7,6 @@ import lombok.Setter;
 
 @Getter
 @Setter
-@AllArgsConstructor
-@NoArgsConstructor
 public class Car extends Vehicle {
     private int wheels;
     private String type;
@@ -20,7 +18,7 @@ public class Car extends Vehicle {
 
     public Car(String name, int wheels, int doors, int gears, boolean isManual, String type, int seats) {
         //Hint: Car extends Vehicle
-        super(name,0,0);
+        super(name);
         this.wheels=wheels;
         this.doors=doors;
         this.gears=gears;
