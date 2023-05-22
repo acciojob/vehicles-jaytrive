@@ -5,6 +5,10 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import javax.sound.midi.Soundbank;
+import java.lang.ref.SoftReference;
+import java.sql.SQLOutput;
+
 @Getter
 @Setter
 public class F1 extends Car {
@@ -12,11 +16,12 @@ public class F1 extends Car {
     public F1(String name, boolean isManual) {
         setName(name);
         setManual(isManual);
-        //Use arbitrary values for parameters which are not mentioned
+        //Use arbitrary values for parameters which are not mentioned;
     }
 
+
     public void accelerate(int rate){
-        int newSpeed = 0; //set the value of new speed by using currentSpeed and rate
+        int newSpeed = rate; //set the value of new speed by using currentSpeed and rate
         /**
          * speed 0: gear 1
          * speed 1-50: gear 1
@@ -29,7 +34,7 @@ public class F1 extends Car {
 
         //Stop the car, set gear as 1
         if(newSpeed == 0) {
-            setCurrentGear(0);
+            setCurrentGear(1);
             setCurrentSpeed(0);}
         //for all other cases, change the gear accordingly
 
@@ -66,8 +71,8 @@ public class F1 extends Car {
         }
 
 
-        if(newSpeed > 0) {
-            changeSpeed(newSpeed, getCurrentDirection());
+        if(getCurrentSpeed()+rate > 0) {
+            changeSpeed(getCurrentSpeed()+rate, getCurrentDirection());
         }
     }
 }
