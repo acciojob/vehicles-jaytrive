@@ -21,7 +21,7 @@ public class F1 extends Car {
 
 
     public void accelerate(int rate){
-        int newSpeed = rate; //set the value of new speed by using currentSpeed and rate
+        int newSpeed = getCurrentSpeed()+rate; //set the value of new speed by using currentSpeed and rate
         /**
          * speed 0: gear 1
          * speed 1-50: gear 1
@@ -39,40 +39,40 @@ public class F1 extends Car {
         //for all other cases, change the gear accordingly
 
         //1-50
-        if(getCurrentSpeed()+rate>=1 && getCurrentSpeed()+rate<=50){
+        if(newSpeed>=1 && newSpeed<=50){
             setCurrentGear(1);
-            setCurrentSpeed(getCurrentSpeed()+rate);
+            setCurrentSpeed(newSpeed);
         }
 
         //51-100
-        if(getCurrentSpeed()+rate>=51 && getCurrentSpeed()+rate<=100){
+        if(newSpeed>=51 && newSpeed<=100){
             setCurrentGear(2);
-            setCurrentSpeed(getCurrentSpeed()+rate);
+            setCurrentSpeed(newSpeed);
         }
 
-        if(getCurrentSpeed()+rate>=101 && getCurrentSpeed()+rate<=150){
+        if(newSpeed>=101 && newSpeed<=150){
             setCurrentGear(3);
-            setCurrentSpeed(getCurrentSpeed()+rate);
+            setCurrentSpeed(newSpeed);
         }
 
-        if(getCurrentSpeed()+rate>=151 && getCurrentSpeed()+rate<=200){
+        if(newSpeed>=151 && newSpeed<=200){
             setCurrentGear(4);
-            setCurrentSpeed(getCurrentSpeed()+rate);
+            setCurrentSpeed(newSpeed);
         }
 
-        if(getCurrentSpeed()+rate>=201 && getCurrentSpeed()+rate<=250){
+        if(newSpeed>=201 && newSpeed<=250){
             setCurrentGear(5);
-            setCurrentSpeed(getCurrentSpeed()+rate);
+            setCurrentSpeed(newSpeed);
         }
 
-        if(getCurrentSpeed()+rate>=250){
+        if(newSpeed>=250){
             setCurrentGear(6);
-            setCurrentSpeed(getCurrentSpeed()+rate);
+            setCurrentSpeed(newSpeed);
         }
 
 
-        if(getCurrentSpeed()+rate > 0) {
-            changeSpeed(getCurrentSpeed()+rate, getCurrentDirection());
+        if(newSpeed > 0) {
+            changeSpeed(newSpeed, getCurrentDirection());
         }
     }
 }
