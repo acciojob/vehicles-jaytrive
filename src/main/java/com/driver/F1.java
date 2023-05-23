@@ -9,7 +9,8 @@ import javax.sound.midi.Soundbank;
 import java.lang.ref.SoftReference;
 import java.sql.SQLOutput;
 
-
+@Setter
+@Getter
 public class F1 extends Car {
 
     public F1(String name, boolean isManual) {
