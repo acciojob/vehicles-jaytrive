@@ -6,8 +6,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 
-@Setter
-@Getter
 public class Vehicle {
 
     private String name;
@@ -27,10 +25,26 @@ public class Vehicle {
         System.out.println("steer method called - The direction is changed to: " + currentDirection + " degrees");
     }
 
+    public int getCurrentSpeed() {
+        return currentSpeed;
+    }
+
+    public void setCurrentSpeed(int currentSpeed) {
+        this.currentSpeed = currentSpeed;
+    }
+
+    public int getCurrentDirection() {
+        return currentDirection;
+    }
+
+    public void setCurrentDirection(int currentDirection) {
+        this.currentDirection = currentDirection;
+    }
+
     public void move(int speed, int direction){
         //set the values of currentSpeed and currentDirection
         this.currentSpeed=speed+this.currentSpeed;
-        this.currentDirection=direction+this.currentDirection;
+        this.currentDirection=direction;
         System.out.println("move method called - The speed is changed to: " + currentSpeed + ", and the direction is changed to: " + currentDirection + " degrees");
     }
 
